@@ -63,9 +63,11 @@
   const showBtn = document.getElementById('showBtn');
 
   const database = firebase.database();
+  var students = database.ref('students');
 
   addBtn.addEventListener('click', function(e) {
-    database.ref('/students/' + studentId.value).set({
+    var newStudentRef = students.push();
+    newStudentRef.set({
       first_name: firstName.value,
       last_name: lastName.value,
       age: age.value,
