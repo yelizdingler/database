@@ -13,11 +13,9 @@ main {
 }
 
 form{
-  display:flex;
   width: 400px;
   border: solid 1px #EBEBEB;
   padding: 5rem;
-  float: left; 
 }
 
 button{
