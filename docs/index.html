@@ -160,7 +160,6 @@
   const removeBtn = document.getElementById('removeBtn');
   const showBtn = document.getElementById('showBtn');
   
-  
 
   const database = firebase.database();
   var students = database.ref('students');
@@ -168,8 +167,8 @@
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
     newStudentRef.set({
-      first_name: firstName.value,
-      last_name: lastName.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
       age: age.value,
       weight: weight.value,
       height: height.value,
@@ -192,6 +191,17 @@
       activityHistory: activityHistory.value
     })
   })
+  
+  function loadTableData(items) {
+    const table = document.getElementById("testBody");
+    items.forEach( item => {
+      let row = table.insertRow();
+      let date = row.insertCell(0);
+      date.innerHTML = item.firstName;
+      let name = row.insertCell(1);
+      name.innerHTML = item.lastName;
+    });
+  }
 
   </script>
 </body>
