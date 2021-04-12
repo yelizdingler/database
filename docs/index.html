@@ -29,13 +29,8 @@
       <label for="phone">Telefon</label><br>
       <input type="text" name="phone" id="phone"><br><br>
 
-      <button id="addBtn" class="btn waves-effect waves-light">Add</button>
-      <button id="updateBtn" class="btn waves-effect waves-light">Update</button>
-      <button id="removeBtn" class="btn waves-effect red-darken-l">Remove</button>
-      <button id="showBtn" class="btn waves-effect waves-light">Show</button>
+    
     </form>
-    </main>
-    <mainMiddle>
      <form>
       <label for = "footInfo">Ayak</label><br>
       <input type="text" name="footInfo" id="footInfo"><br>
@@ -47,8 +42,49 @@
       <input type="text" name="chestInfo" id="chestInfo"><br>
       <label for="earInfo">Kulak</label><br>
       <input type="text" name="earInfo" id="earInfo"><br>
+       
       </form>
-  </mainMiddle>
+    
+     <form>
+      <label for = "healthHistory">Sağlık Geçmişi</label><br><br>
+      <label for="surgeryInfo">Ameliyat Geçmişi</label><br>
+      <input type="text" name="surgeryInfo" id="surgeryInfo"><br>
+      <label for = "motherHealth">Anne</label><br>
+      <input type="text" name="motherHealth" id="motherHealth"><br>
+      <label for="fatherHealth">Baba</label><br>
+      <input type="text" name="fatherHealth" id="fatherHealth"><br>
+      <label for="momGrandMom">Anne Anne</label><br>
+      <input type="text" name="momGrandMom" id="momGrandMom"><br>
+      <label for="momGrandDad">Anne tarafı Dede</label><br>
+      <input type="text" name="momGrandDad" id="momGrandDad"><br>
+      <label for="dadGrandMom">Baba Anne</label><br>
+      <input type="text" name="dadGrandMom" id="dadGrandMom"><br>
+      <label for="dadGrandDad">Baba Tarafı Dede</label><br>
+      <input type="text" name="dadGrandDad" id="dadGrandDad"><br><br><br>
+        
+      <label for = "eatHistory">Yeme İçme</label><br><br>
+      <input type="text" name="eatHistory" id="eatHistory"><br><br>
+      <label for = "sleepHistory">Uyku</label><br>
+      <input type="text" name="sleepHistory" id="sleepHistory"><br>
+      <label for="activityHistory">Aktivite</label><br>
+      <input type="text" name="activityHistory" id="activityHistory"><br>
+       
+      <button id="addBtn" class="btn waves-effect waves-light">Add</button>
+      <button id="updateBtn" class="btn waves-effect waves-light">Update</button>
+      <button id="removeBtn" class="btn waves-effect red-darken-l">Remove</button>
+      <button id="showBtn" class="btn waves-effect waves-light">Show</button>
+    </form>
+   
+    <table id="myTable" class="table table-borderless table-striped table-earning">
+  <thead>
+    <tr>
+      <th>date</th>
+      <th>file name</th>
+    </tr>
+  </thead>
+  <tbody id="testBody"></tbody>
+</table>
+    </main>
   
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -85,6 +121,19 @@
   const chestInfo = document.getElementById('chestInfo');
   const earInfo = document.getElementById('earInfo');
   
+  
+  const surgeryInfo = document.getElementById('surgeryInfo');
+  const motherHealth = document.getElementById('motherHealth');
+  const fatherHealth = document.getElementById('fatherHealth');
+  const momGrandMom = document.getElementById('momGrandMom');
+  const momGrandDad = document.getElementById('momGrandDad');
+  const dadGrandMom = document.getElementById('dadGrandMom');
+  const dadGrandDad = document.getElementById('dadGrandDad');
+  
+  const eatHistory = document.getElementById('eatHistory');
+  const sleepHistory = document.getElementById('sleepHistory');
+  const activityHistory = document.getElementById('activityHistory');
+  
   const addBtn = document.getElementById('addBtn');
   const updateBtn = document.getElementById('updateBtn');
   const removeBtn = document.getElementById('removeBtn');
@@ -109,7 +158,17 @@
       kneeInfo: kneeInfo.value,
       hipInfo: hipInfo.value,
       chestInfo: chestInfo.value,
-      earInfo: earInfo.value
+      earInfo: earInfo.value,
+      surgeryInfo: surgeryInfo.value,
+      motherHealth: motherHealth.value,
+      fatherHealth: fatherHealth.value,
+      momGrandMom: momGrandMom.value,
+      momGrandDad: momGrandDad.value,
+      dadGrandMom: dadGrandMom.value,
+      dadGrandDad: dadGrandDad.value,
+      eatHistory: eatHistory.value,
+      sleepHistory: sleepHistory.value,
+      activityHistory: activityHistory.value
     })
   })
 
