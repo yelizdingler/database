@@ -69,17 +69,27 @@
       <label for="activityHistory">Aktivite</label><br>
       <input type="text" name="activityHistory" id="activityHistory"><br>
        
+           
+    <form action="/action_page.php">
+      <label for="img">Select image:</label>
+      <input type="file" id="img" name="img" accept="image/*">
+      <label for="img">Select image:</label>
+      <input type="file" id="img2" name="img2" accept="image/*">
+      <label for="img">Select image:</label>
+      <input type="file" id="img3" name="img3" accept="image/*">
+      <label for="img">Select image:</label>
+      <input type="file" id="img4" name="img4" accept="image/*">
+      <label for="img">Select image:</label>
+      <input type="file" id="img5" name="img5" accept="image/*">
+      <input type="submit">
+    </form>
+       
       <button id="addBtn" class="btn waves-effect waves-light">Add</button>
       <button id="updateBtn" class="btn waves-effect waves-light">Update</button>
       <button id="removeBtn" class="btn waves-effect red-darken-l">Remove</button>
       <button id="showBtn" class="btn waves-effect waves-light">Show</button>
     </form>
-    
-    <form action="/action_page.php">
-      <label for="img">Select image:</label>
-      <input type="file" id="img" name="img" accept="image/*">
-      <input type="submit">
-    </form>
+
    
     <table id="studentTable" class="table table-borderless table-striped table-earning">
   <thead>
@@ -113,8 +123,8 @@
 </table>
     </main>
   
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
@@ -161,6 +171,12 @@
   const sleepHistory = document.getElementById('sleepHistory');
   const activityHistory = document.getElementById('activityHistory');
   
+  const img = document.getElementById('img');
+  const img2 = document.getElementById('img2');
+  const img3 = document.getElementById('img3');
+  const img4 = document.getElementById('img4');
+  const img5 = document.getElementById('img5');
+  
   const addBtn = document.getElementById('addBtn');
   const updateBtn = document.getElementById('updateBtn');
   const removeBtn = document.getElementById('removeBtn');
@@ -194,7 +210,12 @@
       dadGrandDad: dadGrandDad.value,
       eatHistory: eatHistory.value,
       sleepHistory: sleepHistory.value,
-      activityHistory: activityHistory.value
+      activityHistory: activityHistory.value,
+      img: img.value,
+      img2: img2.value,
+      img3: img3.value,
+      img4: img4.value,
+      img5: img5.value
     })
   })
   
