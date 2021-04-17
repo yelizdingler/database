@@ -215,7 +215,7 @@
   
   function loadTableData(items) {
     const table = document.getElementById("testBody");
-    items.forEach( item => {
+    items.forEach( function(item) {
       let row = table.insertRow();
       
       let firstName = row.insertCell(0);
