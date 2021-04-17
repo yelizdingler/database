@@ -272,9 +272,9 @@
   var databaseItems=null;
   // Attach an asynchronous callback to read the data at our posts reference
   students.on("value", function(snapshot) {
-    //console.log(snapshot.val());
+    console.log(snapshot.val());
     databaseItems=snapshot.val();
-    databaseItems.forEach(myFunction)
+    //databaseItems.forEach(myFunction)
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
