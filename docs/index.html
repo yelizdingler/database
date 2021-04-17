@@ -183,6 +183,7 @@
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
     newStudentRef.set({
+      studentId: studentId.value,
       firstName: firstName.value,
       lastName: lastName.value,
       age: age.value,
