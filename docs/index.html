@@ -217,16 +217,58 @@
     const table = document.getElementById("testBody");
     items.forEach( item => {
       let row = table.insertRow();
-      let date = row.insertCell(0);
-      date.innerHTML = item.firstName;
-      let name = row.insertCell(1);
-      name.innerHTML = item.lastName;
+      
+      let firstName = row.insertCell(0);
+      firstName.innerHTML = item.firstName;
+      let lastName = row.insertCell(1);
+      lastName.innerHTML = item.lastName;
+      let age = row.insertCell(2);
+      age.innerHTML = item.age;
+      let weight = row.insertCell(3);
+      weight.innerHTML = item.weight;
+      let height = row.insertCell(4);
+      height.innerHTML = item.height;
+      let mail = row.insertCell(5);
+      mail.innerHTML = item.mail;
+      let phone = row.insertCell(6);
+      phone.innerHTML = item.phone;
+      let footInfo = row.insertCell(7);
+      footInfo.innerHTML = item.footInfo;
+      let kneeInfo = row.insertCell(8);
+      kneeInfo.innerHTML = item.kneeInfo;
+      let hipInfo = row.insertCell(9);
+      hipInfo.innerHTML = item.hipInfo;
+      let chestInfo = row.insertCell(10);
+      chestInfo.innerHTML = item.chestInfo;
+      let earInfo = row.insertCell(11);
+      earInfo.innerHTML = item.earInfo;
+      let surgeryInfo = row.insertCell(12);
+      surgeryInfo.innerHTML = item.surgeryInfo;
+      let motherHealth = row.insertCell(13);
+      motherHealth.innerHTML = item.motherHealth;
+      let fatherHealth = row.insertCell(14);
+      fatherHealth.innerHTML = item.fatherHealth;
+      let momGrandMom = row.insertCell(15);
+      momGrandMom.innerHTML = item.momGrandMom;
+      let momGrandDad = row.insertCell(16);
+      momGrandDad.innerHTML = item.momGrandDad;
+      let dadGrandMom = row.insertCell(17);
+      dadGrandMom.innerHTML = item.dadGrandMom;
+      let dadGrandDad = row.insertCell(18);
+      dadGrandDad.innerHTML = item.dadGrandDad;
+      let eatHistory = row.insertCell(19);
+      eatHistory.innerHTML = item.eatHistory;
+      let sleepHistory = row.insertCell(20);
+      sleepHistory.innerHTML = item.sleepHistory;
+      let activityHistory = row.insertCell(21);
+      activityHistory.innerHTML = item.activityHistory;
     });
   }
   
   // Attach an asynchronous callback to read the data at our posts reference
 students.on("value", function(snapshot) {
-  console.log(snapshot.val());
+  console.log(snapshot.val().get(0);
+  
 }, function (errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
