@@ -74,33 +74,39 @@
       <button id="removeBtn" class="btn waves-effect red-darken-l">Remove</button>
       <button id="showBtn" class="btn waves-effect waves-light">Show</button>
     </form>
+    
+    <form action="/action_page.php">
+      <label for="img">Select image:</label>
+      <input type="file" id="img" name="img" accept="image/*">
+      <input type="submit">
+    </form>
    
     <table id="studentTable" class="table table-borderless table-striped table-earning">
   <thead>
     <tr>
-      <th>Öğrenci ID</th>
-      <th>Ad</th>
-      <th>Soyad</th>
-      <th>Yaş</th>
-      <th>Kilo</th>
-      <th>Boy</th>
+      <th>StudentID</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>Weight</th>
+      <th>Height</th>
       <th>Mail</th>
-      <th>Telefon</th>
-      <th>Ayak</th>
-      <th>Diz</th>
-      <th>Kalça</th>
-      <th>Göğüs</th>
-      <th>Kulak</th>
-      <th>Ameliyat</th>
-      <th>Anne</th>
-      <th>Baba</th>   
-      <th>AnneAnne</th>
-      <th>Anne tarafı dede</th>
-      <th>BabaAnne</th>
-      <th>Baba tarafı dede</th>
-      <th>Yemek</th>
-      <th>Uyku</th>
-      <th>Aktivite</th>
+      <th>Phone</th>
+      <th>Foot</th>
+      <th>Knee</th>
+      <th>Hip</th>
+      <th>Chest</th>
+      <th>Ear</th>
+      <th>Surgery</th>
+      <th>Mum</th>
+      <th>Dad</th>   
+      <th>Grandma(Mum's)</th>
+      <th>Grandpa(Mums's)</th>
+      <th>Grandma(Dad's)</th>
+      <th>Grandma(Dad's)</th>
+      <th>EatingHabit</th>
+      <th>SleepHabit</th>
+      <th>Activity</th>
     </tr>
   </thead>
   <tbody id="testBody"></tbody>
