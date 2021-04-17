@@ -265,14 +265,16 @@
     });
   }
   
+  var databaseItems=null;
   // Attach an asynchronous callback to read the data at our posts reference
-students.on("value", function(snapshot) {
-  console.log(snapshot.val());
-  loadTableData( snapshot.val());
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+  students.on("value", function(snapshot) {
+    console.log(snapshot.val());
+    databaseItems=snapshot.val();
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 
+  loadTableData( databaseItems);
   </script>
 </body>
 </html>
