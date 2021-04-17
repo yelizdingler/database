@@ -274,6 +274,7 @@
   students.on("child_added", function(snapshot) {
     console.log(snapshot.val());
     databaseItems=snapshot.val();
+    loadTableData( databaseItems);
     console.log(databaseItems.firstName)
     //databaseItems.forEach(myFunction)
   }, function (errorObject) {
@@ -282,7 +283,7 @@
 
   
   
-  //loadTableData( databaseItems);
+  
   </script>
 </body>
 </html>
