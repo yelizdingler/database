@@ -189,7 +189,7 @@
   var files = [];
   var reader;
   
-   document.getElementById('selectBtn').onClick = function(e){
+   document.getElementById('selectBtn').addEventListener('click', function(e){
      var input = document.createElement('input');
      input.type = 'file';
      
@@ -203,7 +203,7 @@
      }
      
      input.click();
-   }
+   });
 
   nameBtn.addEventListener('click', function(e) {
     sortTable(0,false);
