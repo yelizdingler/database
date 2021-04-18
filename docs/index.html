@@ -62,19 +62,41 @@
       <input type="text" name="sleepHistory" id="sleepHistory"><br>
       <label for="activityHistory">Aktivite</label><br>
       <input type="text" name="activityHistory" id="activityHistory"><br>
-       
-       <br>
-    <!-- click here to choose file -->
+      <br><br>
+      </form> 
+    
+      <form class="container" id="contactForm">
+        <div class="card">
+            <div class="card-body">
+              <div class="form-group" 
+                     style="margin-left: 15px; 
+                            margin-top: 10px;
+                            display:none;>
+              <label for=" exampleFormControlSelect1 ">Select Type</label>
+              <select class="form-control " id="types ">
+                <option>1</option>
+              </select>
+            </div>
+      <br>
+    <br>
     <input type="file " name="files[] " id="files ">
-    <!-- click here to upload file -->
     <input type="hidden " 
            name="url " 
            id="url ">    
-    <button type="button " onclick="uploadimage() ">
-               Upload Image
-    </button>
-    <br><br>
-    </form>       
+           <button type="button " onclick="uploadimage() "></button>
+           <br><br>
+    </div>
+  </div>
+                                                         
+    <button type="submit " 
+        class="btn btn-primary " 
+        style="margin-left: 15px; margin-top: 10px; display:none; ">
+                
+  </button>
+  
+</form>
+      
+          
     <form action="/action_page.php">
       <label for="img">Select image:</label>
       <input type="file" id="img" name="img" accept="image/*">
