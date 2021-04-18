@@ -68,15 +68,7 @@
     <form action="/action_page.php">
       <label for="img">Select image:</label>
       <input type="file" id="img" name="img" accept="image/*" multiple>
-      <label for="img">Select image:</label>
-      <input type="file" id="img2" name="img2" accept="image/*">
-      <label for="img">Select image:</label>
-      <input type="file" id="img3" name="img3" accept="image/*">
-      <label for="img">Select image:</label>
-      <input type="file" id="img4" name="img4" accept="image/*">
-      <label for="img">Select image:</label>
-      <input type="file" id="img5" name="img5" accept="image/*">
-      <input type="submit" >
+      <button id="uploadBtn" class="btn waves-effect waves-light">Upload Photos</button>
     </form>
     
      <form>
@@ -184,6 +176,7 @@
   const database = firebase.database();
   var students = database.ref('students');
 
+
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
     newStudentRef.set({
@@ -210,12 +203,8 @@
       sleepHistory: sleepHistory.value,
       activityHistory: activityHistory.value,
       img: img.value,
-      img2: img2.value,
-      img3: img3.value,
-      img4: img4.value,
-      img5: img5.value
-    })
-  })
+    });
+  });
   
   function loadTableData(item) {
     const table = document.getElementById("testBody");
@@ -272,17 +261,11 @@
   }
   
   
-  function myFunction(item) {
-    console.log(item); 
-  }
-  var databaseItems=null;
+  
   // Attach an asynchronous callback to read the data at our posts reference
   students.on("child_added", function(snapshot) {
-    console.log(snapshot.val());
     databaseItems=snapshot.val();
     loadTableData( databaseItems);
-    console.log(databaseItems.firstName)
-    //databaseItems.forEach(myFunction)
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
