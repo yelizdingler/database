@@ -63,35 +63,7 @@
       <label for="activityHistory">Aktivite</label><br>
       <input type="text" name="activityHistory" id="activityHistory"><br>
       <br><br>
-      </form> 
-    
-      <form class="container" id="contactForm">
-        <div class="card">
-            <div class="card-body">
-             
-              <label for=" exampleFormControlSelect1 ">Select Type</label>
-              <select class="form-control " id="types ">
-                <option>1</option>
-              </select>
-            </div>
-
-    <input type="file " name="files[] " id="files ">
-    <input type="hidden " 
-           name="url " 
-           id="url ">    
-           <button type="button " onclick="uploadimage() ">Upload</button>
-           <br><br>
-    </div>
-  </div>
-                                                         
-    <button type="submit " 
-        class="btn btn-primary " 
-        style="margin-left: 15px; margin-top: 10px; display:none; ">
-                
-  </button>
-  
-</form>
-      
+      </form>    
           
     <form action="/action_page.php">
       <label for="img">Select image:</label>
@@ -104,8 +76,9 @@
       <input type="file" id="img4" name="img4" accept="image/*">
       <label for="img">Select image:</label>
       <input type="file" id="img5" name="img5" accept="image/*">
-      <input type="submit">
+      <input type="submit" onclick="uploadimage()">
     </form>
+    
      <form>
       <button id="addBtn" class="btn waves-effect waves-light">Add</button>
       <button id="updateBtn" class="btn waves-effect waves-light">Update</button>
