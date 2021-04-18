@@ -196,9 +196,9 @@
      input.onchange = e => {
        files = e.target.files;
        reader = new FileReader();
-       //reader.onload = function(){
-       //   imgUrl = reader.result;
-       //}
+       reader.onload = function(){
+          imgUrl = reader.result;
+       }
        reader.readAsDataURL(files[0]);
      }
      
