@@ -68,10 +68,13 @@
     <form action="/action_page.php">
       <label for="img">Select image:</label>
       <input type="file" id="img" name="img" accept="image/*" multiple>
+      <label id="uploadProgress"></label><br>
     </form>
+    
     
      <form>
       <button id="addBtn" class="btn waves-effect waves-light">Add</button>
+       <button id="selectBtn" class="btn waves-effect waves-light">Select Image</button>
       </form>
 
    
@@ -127,8 +130,9 @@
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js "></script>
 <link type="text/css " rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css " />
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
 
@@ -178,9 +182,27 @@
   const addBtn = document.getElementById('addBtn');
   
   const database = firebase.database();
-  const storage = firebase.storage().ref();
   var students = database.ref('students');
 
+  var imgName, imgUrl;
+  var files = [];
+  var reader;
+  
+   document.getElementById('selectImg').onClick = function(e){
+     var input = document.createElement('input');
+     input.type = 'file';
+     
+     input.onchange = e => {
+       files = e.target.files;
+       reader = new FileReader();
+       //reader.onload = function(){
+       //   imgUrl = reader.result;
+       //}
+       reader.readAsDataURL(files[0]);
+     }
+     
+     input.click();
+   }
 
   nameBtn.addEventListener('click', function(e) {
     sortTable(0,false);
@@ -223,6 +245,29 @@
       eatHistory: eatHistory.value,
       sleepHistory: sleepHistory.value,
       activityHistory: activityHistory.value
+    });
+    imgName = phone.value;
+    var uploadTask = firebase.storage().ref('students/images'+imgName+".png").put(files[0]);
+    
+    uploadTask.on('state_change', function(snapshot){
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      document.getElementById('uploadProgress').innerHTML = 'Upload ' + progress + '%';
+    },
+    function(error){
+      alert('error in saving the image');
+    },
+    function(){
+      uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+        imgUrl = url;
+        
+        database.ref('Pictures/'+imgName).set({
+          name: imgName,
+          link: imgUrl
+        });
+        alert('image added successfully');
+    
+      });
+      
     });
   });
   
