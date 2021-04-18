@@ -178,6 +178,7 @@
   const addBtn = document.getElementById('addBtn');
   
   const database = firebase.database();
+  const storage = firebase.storage().ref();
   var students = database.ref('students');
 
 
@@ -221,9 +222,12 @@
       dadGrandDad: dadGrandDad.value,
       eatHistory: eatHistory.value,
       sleepHistory: sleepHistory.value,
-      activityHistory: activityHistory.value,
-      img: img.value,
+      activityHistory: activityHistory.value
     });
+    storage.put(img.value).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+    }
+    
   });
   
   
