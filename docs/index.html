@@ -185,7 +185,19 @@
   nameBtn.addEventListener('click', function(e) {
     sortTable(0,false);
   });
-  
+  surnameBtn.addEventListener('click', function(e) {
+    sortTable(1,false);
+  });
+  ageBtn.addEventListener('click', function(e) {
+    sortTable(2,true);
+  });
+  weightBtn.addEventListener('click', function(e) {
+    sortTable(3,true);
+  });
+  heightBtn.addEventListener('click', function(e) {
+    sortTable(4,true);
+  });
+
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
     newStudentRef.set({
