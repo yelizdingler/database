@@ -73,9 +73,6 @@
     
      <form>
       <button id="addBtn" class="btn waves-effect waves-light">Add</button>
-      <button id="updateBtn" class="btn waves-effect waves-light">Update</button>
-      <button id="removeBtn" class="btn waves-effect red-darken-l">Remove</button>
-      <button id="showBtn" class="btn waves-effect waves-light">Show</button>
       </form>
 
    
@@ -98,19 +95,14 @@
         <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
       </th>
       <th>
-        <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
         Mail</th>
       <th>
-        <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
         Phone</th>
       <th>
-        <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
         Foot</th>
       <th>
-        <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
         Knee</th>
       <th>
-        <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
         Hip</th>
       <th>Chest</th>
       <th>Ear</th>
@@ -183,20 +175,17 @@
   const activityHistory = document.getElementById('activityHistory');
   
   const img = document.getElementById('img');
-  const img2 = document.getElementById('img2');
-  const img3 = document.getElementById('img3');
-  const img4 = document.getElementById('img4');
-  const img5 = document.getElementById('img5');
   
   const addBtn = document.getElementById('addBtn');
-  const updateBtn = document.getElementById('updateBtn');
-  const removeBtn = document.getElementById('removeBtn');
-  const showBtn = document.getElementById('showBtn');
   
   const database = firebase.database();
   var students = database.ref('students');
 
 
+  nameBtn.addEventListener('click', function(e) {
+    students.orderByChild('firstName')
+  });
+  
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
     newStudentRef.set({
@@ -225,6 +214,8 @@
       img: img.value,
     });
   });
+  
+  
   
   function loadTableData(item) {
     const table = document.getElementById("testBody");
