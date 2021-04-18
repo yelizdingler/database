@@ -61,6 +61,10 @@
       <label for="activityHistory">Aktivite</label><br>
       <input type="text" name="activityHistory" id="activityHistory"><br>
        
+      <input type='file' onchange="readURL(this);" />
+      <br />
+      <textarea id="dataUrl" rows="4" cols="100">
+</textarea>
     </form>       
     <form action="/action_page.php">
       <label for="img">Select image:</label>
@@ -108,6 +112,7 @@
       <th>EatingHabit</th>
       <th>SleepHabit</th>
       <th>Activity</th>
+      <th>Images</th>
     </tr>
   </thead>
   <tbody id="testBody"></tbody>
@@ -172,9 +177,37 @@
   const removeBtn = document.getElementById('removeBtn');
   const showBtn = document.getElementById('showBtn');
   
-
   const database = firebase.database();
   var students = database.ref('students');
+  
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.addEventListener(
+      "load",
+      function() {
+        var avatarImg = new Image();
+        var src = reader.result;
+        avatarImg.src = src;
+        document.getElementById("dataUrl").innerText = src;
+
+        avatarImg.onload = function() {
+          var c = document.getElementById("myCanvas");
+          var ctx = c.getContext("2d");
+          ctx.canvas.width = avatarImg.width;
+          ctx.canvas.height = avatarImg.height;
+          
+          ctx.drawImage(avatarImg, 0, 0);
+        };
+      },
+      false
+    );
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
@@ -258,6 +291,8 @@
       sleepHistory.innerHTML = item.sleepHistory;
       let activityHistory = row.insertCell(21);
       activityHistory.innerHTML = item.activityHistory;
+      let images = row.insertCell(22);
+      images.innerHTML =
  
   }
   
