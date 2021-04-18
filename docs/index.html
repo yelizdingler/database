@@ -183,7 +183,8 @@
 
 
   nameBtn.addEventListener('click', function(e) {
-    students.orderByChild('firstName')
+    var newData = students.orderByChild('firstName')
+    loadTableData( newData );
   });
   
   addBtn.addEventListener('click', function(e) {
