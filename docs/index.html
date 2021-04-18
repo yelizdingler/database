@@ -75,7 +75,6 @@
      <form>
       <button id="addBtn" class="btn waves-effect waves-light">Add</button>
        <button id="selectBtn" class="btn waves-effect waves-light">Select Image</button>
-       <label id="uploadProgress"></label><br>
       </form>
 
    
@@ -189,7 +188,9 @@
   var files = [];
   var reader;
   
-   document.getElementById('selectBtn').addEventListener('click', function(e){
+  files = img.files;
+  
+   /*document.getElementById('selectBtn').addEventListener('click', function(e){
      var input = document.createElement('input');
      input.type = 'file';
      
@@ -200,7 +201,7 @@
      }
      
      input.click();
-   });
+   });*/
 
   nameBtn.addEventListener('click', function(e) {
     sortTable(0,false);
@@ -244,6 +245,7 @@
       sleepHistory: sleepHistory.value,
       activityHistory: activityHistory.value
     });
+    
     imgName = phone.value;
     var uploadTask = firebase.storage().ref('students/images'+imgName+".png").put(files[0]);
     
