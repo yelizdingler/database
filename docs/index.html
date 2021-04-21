@@ -40,7 +40,7 @@
       <label for="earInfo">Kulak</label><br>
       <input type="text" name="earInfo" id="earInfo"><br><br>
        
-      <label for = "healthHistory">Sağlık Geçmişi</label><br><br>
+      <label for = "healthHistory"><b>Sağlık Geçmişi</label><br>
       <label for="surgeryInfo">Ameliyat Geçmişi</label><br>
       <input type="text" name="surgeryInfo" id="surgeryInfo"><br>
       <label for = "motherHealth">Anne</label><br>
@@ -54,21 +54,20 @@
       <label for="dadGrandMom">Baba Anne</label><br>
       <input type="text" name="dadGrandMom" id="dadGrandMom"><br>
       <label for="dadGrandDad">Baba Tarafı Dede</label><br>
-      <input type="text" name="dadGrandDad" id="dadGrandDad"><br><br><br>
+      <input type="text" name="dadGrandDad" id="dadGrandDad"><br><br>
         
       <label for = "eatHistory">Yeme İçme</label><br><br>
-      <input type="text" name="eatHistory" id="eatHistory"><br><br>
+      <input type="text" name="eatHistory" id="eatHistory"><br>
       <label for = "sleepHistory">Uyku</label><br>
       <input type="text" name="sleepHistory" id="sleepHistory"><br>
       <label for="activityHistory">Aktivite</label><br>
       <input type="text" name="activityHistory" id="activityHistory"><br>
-      <br><br>
    </form>    
           
     
-     <form>
-      <button id="addBtn" class="btn waves-effect waves-light">Add</button>
-      </form>
+   <form>
+    <button id="addBtn" class="btn waves-effect waves-light">Add</button>
+   </form>
 
    
   <table id="studentTable" class="table table-borderless table-striped table-earning">
@@ -223,13 +222,13 @@
     sortTable(6,false);
   });
   footBtn.addEventListener('click', function(e) {
-    sortTable(7,true);
+    sortTable(7,false);
   });
   kneeBtn.addEventListener('click', function(e) {
-    sortTable(8,true);
+    sortTable(8,false);
   });
   hipBtn.addEventListener('click', function(e) {
-    sortTable(9,true);
+    sortTable(9,false);
   });
   
   chestBtn.addEventListener('click', function(e) {
@@ -239,13 +238,13 @@
     sortTable(11,false);
   });
   surgeryBtn.addEventListener('click', function(e) {
-    sortTable(12,true);
+    sortTable(12,false);
   });
   mumBtn.addEventListener('click', function(e) {
-    sortTable(13,true);
+    sortTable(13,false);
   });
   dadBtn.addEventListener('click', function(e) {
-    sortTable(14,true);
+    sortTable(14, false);
   });
   grandmommomBtn.addEventListener('click', function(e) {
     sortTable(15,false);
@@ -254,19 +253,19 @@
     sortTable(16,false);
   });
   grandmomdadBtn.addEventListener('click', function(e) {
-    sortTable(17,true);
+    sortTable(17,false);
   });
   granddaddadBtn.addEventListener('click', function(e) {
-    sortTable(18,true);
+    sortTable(18,false);
   });
   eatingHabitBtn.addEventListener('click', function(e) {
-    sortTable(19,true);
+    sortTable(19,false);
   });
   sleepingHabitBtn.addEventListener('click', function(e) {
-    sortTable(20,true);
+    sortTable(20,false);
   });
   activityBtn.addEventListener('click', function(e) {
-    sortTable(21,true);
+    sortTable(21,false);
   });
   
 
