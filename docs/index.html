@@ -65,12 +65,6 @@
       <br><br>
    </form>    
           
-    <form action="/action_page.php">
-      <label for="img">Select image:</label>
-      <input type="file" id="img" name="img" accept="image/*" multiple>
-      
-    </form>
-    
     
      <form>
       <button id="addBtn" class="btn waves-effect waves-light">Add</button>
@@ -82,43 +76,71 @@
   <thead>
     <tr>
       <th>
-        <button id="nameBtn" class="btn waves-effect waves-light">Name</button>  
+        <button id="nameBtn" class="btn waves-effect waves-light">Ad</button>  
       </th>
       <th>
-        <button id="surnameBtn" class="btn waves-effect waves-light">Surname</button>  
+        <button id="surnameBtn" class="btn waves-effect waves-light">Soyad</button>  
         </th>
       <th>
-        <button id="ageBtn" class="btn waves-effect waves-light">Age</button>  
+        <button id="ageBtn" class="btn waves-effect waves-light">Yaş</button>  
       </th>
       <th>
-        <button id="weightBtn" class="btn waves-effect waves-light">Weight</button>  
+        <button id="weightBtn" class="btn waves-effect waves-light">Kilo</button>  
       </th>
       <th>
-        <button id="heightBtn" class="btn waves-effect waves-light">Height</button>
+        <button id="heightBtn" class="btn waves-effect waves-light">Boy</button>
       </th>
       <th>
-        Mail</th>
+        <button id="mailBtn" class="btn waves-effect waves-light">Mail</button>
+      </th>
       <th>
-        Phone</th>
+        <button id="phoneBtn" class="btn waves-effect waves-light">Telefon</button>
+      </th>
       <th>
-        Foot</th>
+        <button id="footBtn" class="btn waves-effect waves-light">Ayak</button>
+      </th>
       <th>
-        Knee</th>
+        <button id="kneeBtn" class="btn waves-effect waves-light">Diz</button>
+      </th>
       <th>
+        <button id="hipBtn" class="btn waves-effect waves-light">Kalça</button>
         Hip</th>
-      <th>Chest</th>
-      <th>Ear</th>
-      <th>Surgery</th>
-      <th>Mum</th>
-      <th>Dad</th>   
-      <th>Grandma(Mum's)</th>
-      <th>Grandpa(Mums's)</th>
-      <th>Grandma(Dad's)</th>
-      <th>Grandma(Dad's)</th>
-      <th>EatingHabit</th>
-      <th>SleepHabit</th>
-      <th>Activity</th>
-      <th>Images</th>
+      <th>
+        <button id="chestBtn" class="btn waves-effect waves-light">Göğüs</button>
+      </th>
+      <th>
+        <button id="earBtn" class="btn waves-effect waves-light">Kulak</button>
+      </th>
+      <th>
+        <button id="surgeryBtn" class="btn waves-effect waves-light">Ameliyat</button>
+      </th>
+      <th>
+        <button id="mumBtn" class="btn waves-effect waves-light">Anne</button>
+      </th>
+      <th>
+        <button id="dadBtn" class="btn waves-effect waves-light">Baba</button>
+      </th>   
+      <th>
+        <button id="grandmommomBtn" class="btn waves-effect waves-light">Anneanne</button>
+      </th>
+      <th>
+        <button id="granddadmomBtn" class="btn waves-effect waves-light">Anne Tarafı Dede</button>
+      </th>
+      <th>
+        <button id="grandmomdadBtn" class="btn waves-effect waves-light">Babaanne</button>
+        Grandma(Dad's)</th>
+      <th>
+        <button id="granddaddadBtn" class="btn waves-effect waves-light">Baba tarafı Dede</button>
+      </th>
+      <th>
+        <button id="eatingHabitBtn" class="btn waves-effect waves-light">Yemek Alışkanlığı</button>
+      </th>
+      <th>
+        <button id="sleepingHabitBtn" class="btn waves-effect waves-light">Uyku Alışkanlığı</button>
+      </th>
+      <th>
+        <button id="activityBtn" class="btn waves-effect waves-light">Aktivite</button>
+      </th>
     </tr>
   </thead>
   <tbody id="testBody"></tbody>
@@ -127,11 +149,9 @@
   
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <link type="text/css " rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css " />
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
@@ -177,31 +197,10 @@
   const sleepHistory = document.getElementById('sleepHistory');
   const activityHistory = document.getElementById('activityHistory');
   
-  const img = document.getElementById('img');
-  
   const addBtn = document.getElementById('addBtn');
   
   const database = firebase.database();
   var students = database.ref('students');
-
-  var imgName, imgUrl;
-  var files = [];
-  var reader;
-  
-  files = img.files;
-  console.log(files);
-   /*document.getElementById('selectBtn').addEventListener('click', function(e){
-     var input = document.createElement('input');
-     input.type = 'file';
-     
-     input.onchange = e => {
-       files = e.target.files;
-       reader = new FileReader();
-       reader.readAsDataURL(files[0]);
-     }
-     
-     input.click();
-   });*/
 
   nameBtn.addEventListener('click', function(e) {
     sortTable(0,false);
@@ -218,6 +217,59 @@
   heightBtn.addEventListener('click', function(e) {
     sortTable(4,true);
   });
+  mailBtn.addEventListener('click', function(e) {
+    sortTable(5,false);
+  });
+  phoneBtn.addEventListener('click', function(e) {
+    sortTable(6,false);
+  });
+  footBtn.addEventListener('click', function(e) {
+    sortTable(7,true);
+  });
+  kneeBtn.addEventListener('click', function(e) {
+    sortTable(8,true);
+  });
+  hipBtn.addEventListener('click', function(e) {
+    sortTable(9,true);
+  });
+  
+  chestBtn.addEventListener('click', function(e) {
+    sortTable(10,false);
+  });
+  earBtn.addEventListener('click', function(e) {
+    sortTable(11,false);
+  });
+  surgeryBtn.addEventListener('click', function(e) {
+    sortTable(12,true);
+  });
+  mumBtn.addEventListener('click', function(e) {
+    sortTable(13,true);
+  });
+  dadBtn.addEventListener('click', function(e) {
+    sortTable(14,true);
+  });
+  grandmommomBtn.addEventListener('click', function(e) {
+    sortTable(15,false);
+  });
+  granddadmomBtn.addEventListener('click', function(e) {
+    sortTable(16,false);
+  });
+  grandmomdadBtn.addEventListener('click', function(e) {
+    sortTable(17,true);
+  });
+  granddaddadBtn.addEventListener('click', function(e) {
+    sortTable(18,true);
+  });
+  eatingHabitBtn.addEventListener('click', function(e) {
+    sortTable(19,true);
+  });
+  sleepingHabitBtn.addEventListener('click', function(e) {
+    sortTable(20,true);
+  });
+  activityBtn.addEventListener('click', function(e) {
+    sortTable(21,true);
+  });
+  
 
   addBtn.addEventListener('click', function(e) {
     var newStudentRef = students.push();
@@ -245,33 +297,6 @@
       sleepHistory: sleepHistory.value,
       activityHistory: activityHistory.value
     });
-    
-    imgName = phone.value;
-    var uploadTask = firebase.storage().ref('students/images'+imgName+".png").put(files[0]);
-    
-    uploadTask.on('state_change', function(snapshot){
-      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      document.getElementById('uploadProgress').innerHTML = 'Upload ' + progress + '%';
-    },
-    function(error){
-      alert('error in saving the image');
-    },
-    function(){
-      uploadTask.snapshot.ref.getDownloadURL().then(function(url){
-        imgUrl = url;
-        
-        database.ref('Pictures/'+imgName).set({
-          name: imgName,
-          link: imgUrl
-        });
-        alert('image added successfully');
-    
-      });
-      
-    });
-  });
-  
-  
   
   function loadTableData(item) {
     const table = document.getElementById("testBody");
@@ -322,8 +347,6 @@
       sleepHistory.innerHTML = item.sleepHistory;
       let activityHistory = row.insertCell(21);
       activityHistory.innerHTML = item.activityHistory;
-      let images = row.insertCell(22);
-      images.innerHTML = "<button id='btnEdit';>Photos</button>";
   }
   
   
@@ -340,29 +363,17 @@
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("testBody");
   switching = true;
-  // Set the sorting direction to ascending:
   dir = "asc"; 
-  /* Make a loop that will continue until
-  no switching has been done: */
   while (switching) {
-    // Start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
     for (i = 0; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
       shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
       if (dir == "asc") {
         if(!isNumber){
           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
           }
@@ -375,7 +386,6 @@
       } else if (dir == "desc") {
         if(!isNumber){
           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
           }
@@ -388,15 +398,10 @@
       }
     }
     if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
-      // Each time a switch is done, increase this count by 1:
       switchcount ++; 
     } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
